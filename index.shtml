@@ -113,7 +113,7 @@
                 <div id="guilds-info" class="card bg-dark col-sm p-5 h1">
                     <i class="bi bi-hdd-stack"></i>
                     <h4 class="text-primary">Guilds</h5>
-                    <h5 id=""><!--#exec cmd="/usr/bin/python3 /var/www/helper.py info guilds" --></h5>
+                    <h5 id=""><!--#exec cmd="python /var/www/lorelei-Website/helper.py info guilds" --></h5>
                 </div>
                 <div id="ping-info" class="card bg-dark col-sm p-5 h1">
                     <i class="bi bi bi-hash"></i>
