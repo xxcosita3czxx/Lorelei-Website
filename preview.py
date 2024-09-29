@@ -68,10 +68,10 @@ def start_server():
         print(f"Serving on port {PORT}")
 
         # Set up the watchdog observer
-        event_handler = ReloadHandler(httpd, root_path)
-        observer = Observer()
-        observer.schedule(event_handler, path=root_path, recursive=True)
-        observer.start()
+        #event_handler = ReloadHandler(httpd, root_path)
+        #observer = Observer()
+        #observer.schedule(event_handler, path=root_path, recursive=True)
+        #observer.start()
 
         httpd.serve_forever()
     except OSError as e:
