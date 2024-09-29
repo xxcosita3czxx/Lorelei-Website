@@ -88,9 +88,9 @@ def stop_server():
     global httpd, observer
     if httpd:
         httpd.server_close()  # Ensure the server is properly closed
-    if observer:
-        observer.stop()
-        observer.join()
+#    if observer:
+#        observer.stop()
+#        observer.join()
 
 if __name__ == "__main__":
     start_server()
