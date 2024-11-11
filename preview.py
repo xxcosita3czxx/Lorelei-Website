@@ -1,7 +1,6 @@
 import http.server
 import socketserver
 import os
-from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import time
 
@@ -60,7 +59,6 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 def start_server():
     global httpd, observer
-    root_path = os.getcwd()
     handler = MyHttpRequestHandler
 
     try:
