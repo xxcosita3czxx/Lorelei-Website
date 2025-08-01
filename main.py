@@ -22,7 +22,7 @@ async def serve_file(file_path: str):
     full_path = os.path.join(BASE_DIR, file_path)
     if os.path.isfile(full_path):
         return FileResponse(full_path)
-    if file_path.endswith("/"):
+    if file_path.endswith(""):
         # If the path ends with a slash, serve the index.html file
         index_path = os.path.join(full_path, "index.html")
         if os.path.isfile(index_path):
