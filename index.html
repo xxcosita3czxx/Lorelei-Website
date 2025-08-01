@@ -1,8 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Default meta and scripts -->    
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=index.shtml">
-    <title>Redirecting...</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="icon" href="/img/Lorelei.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" href="./img/" type="image/x-icon">
+    <title>Lorelei Bot</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Lorelei Bot" />
+    <meta property="og:description" content="That one Discord bot you will ever need." />
+    <meta property="og:url" content="https://cosita3cz.ddns.net:81" />
+    <meta property="og:image" content="https://www.yourwebsite.com/image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lorelei Bot" />
+
+    <!-- Twitter Card Meta Tags (Optional) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lorelei Bot" />
+    <meta name="twitter:description" content="That one Discord bot you will ever need." />
+    <meta name="twitter:image" content="https://www.yourwebsite.com/image.jpg" />
+
 </head>
+
+<body class="bg-dark">
+
+    <!-- Navbar -->
+    <div id="navbar", file="navbar.html"></div>
+
+    <!-- Info -->
+
+
+    <section class="bg-dark text-light text-center py-5">
+        <div class="container">
+            <div class="d-flex">
+                <div>
+                    <h1><span class="text-info">Lorelei</span> Bot</h1>
+                    <p>That one bot you will ever need</p>
+                    <a class="btn btn-info" href="https://discord.com/oauth2/authorize?client_id=1233881071821652108">Invite Bot</a>
+                    <a class="m-2 btn btn-light" href="">Support Server</a>
+                </div>
+                <img class="text-center" width="auto" height="150" src="./img/Lorelei-transp.png" alt="">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Features -->
+
+
+    <section  id="Features" class="py-5 bg-dark text-light">
+        <div class="container bg-dark">
+            <h2 class="text-center text-info mb-4">
+                Features
+            </h2>
+            <div class="row text-center bg-dark">
+                <div class="col-sm">
+                    <div class="card bg-dark text-light mb-3 h1">
+                        <div class="h1 mt-3">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-info">Easy to Use</h4>
+                            <h5 class="card-text">With our config commands..</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card bg-dark text-light mb-3 h1">
+                        <div class="h1 mt-3">
+                            <i class="bi bi-capslock-fill"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-info">24/7 Online</h4>
+                            <h5 class="card-text">Up to 98% uptime*..</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card bg-dark text-light mb-3 h1">
+                        <div class="h1 mt-3">
+                            <i class="bi bi-folder2-open"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-info">Open Source</h4>
+                            <h5 class="card-text">All code is available on github..</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Statics -->
+
+
+    <section id="Statics" class="py-5 bg-dark text-light">
+        <div class="container">
+            <div class="py-2 text-center text-info">
+                <h2>Statics:</h2>
+            </div>
+            <div id="botinfo" class="row align-items-center justify-content-center text-center -5">
+                <div id="guilds-info" class="card bg-dark col-sm p-5 h1">
+                    <i class="bi bi-hdd-stack"></i>
+                    <h4 class="text-primary">Guilds</h5>
+                    <h5 id="guilds">Loading...</h5>
+                </div>
+                <div id="ping-info" class="card bg-dark col-sm p-5 h1">
+                    <i class="bi bi bi-hash"></i>
+                    <h4 class="card-title text-primary">Ping</h5>
+                    <h5 id="ping">Loading..</h5>
+                </div>
+                <div id="uptime-info" class="card bg-dark col-sm p-5 h1">
+                    <i class="bi bi bi-people-fill"></i>
+                    <h4 class="text-primary">Running for</h5>
+                    <h5 id="uptime">Loading..</h5>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- footer -->
+    <div id="footer", file="footer.html"></div>
+
+</div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/fetchdata.js"></script>
+    <script src="./js/update.data.js"></script>
+    <script src="./js/fetchtime.js"></script>
+    <script src="./js/loadComponents.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
 </html>
