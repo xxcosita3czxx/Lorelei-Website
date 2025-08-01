@@ -1,46 +1,32 @@
-import http.server
-import socketserver
+from fastapi import FastAPI
+from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 import os
-import time
 
-PORT = 25532
-httpd = None
-observer = None
+app = FastAPI()
 
-class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=os.getcwd(), **kwargs)
+# CORS setup
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-    def end_headers(self):
-        # Add CORS headers
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-        super().end_headers()
+# Serve files from current directory
+BASE_DIR = os.getcwd()
 
-def start_server():
-    global httpd, observer
-    handler = MyHttpRequestHandler
-
-    try:
-        httpd = socketserver.TCPServer(("", PORT), handler)
-        print(f"Serving on port {PORT}")
-
-        httpd.serve_forever()
-    except OSError as e:
-        if e.errno == 98:  # Address already in use
-            print("Address already in use. Retrying...")
-            time.sleep(5)  # Wait before retrying
-            start_server()
-    except KeyboardInterrupt:
-        print("Shutting down server...")
-    finally:
-        stop_server()
-
-def stop_server():
-    global httpd, observer
-    if httpd:
-        httpd.server_close()  # Ensure the server is properly closed
+@app.get("/{file_path:path}")
+async def serve_file(file_path: str):
+    full_path = os.path.join(BASE_DIR, file_path)
+    if os.path.isfile(full_path):
+        return FileResponse(full_path)
+    else:
+        return HTMLResponse("<h1>404 Not Found</h1>", status_code=404)
 
 if __name__ == "__main__":
-    start_server()
+    try:
+        uvicorn.run("app:app", host="0.0.0.0", port=25532, reload=True)
+    except KeyboardInterrupt:
+        print("Shutting down server...")
