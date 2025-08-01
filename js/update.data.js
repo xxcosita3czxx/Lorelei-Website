@@ -1,7 +1,7 @@
 // Call fetchData to update specific elements
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchInitialUptime('http://localhost:9921/uptime');
+    fetchInitialUptime('/uptime');
     if (document.getElementById('ping-info')) {
         fetchData('/ping', 'ping');
     }
