@@ -19,11 +19,15 @@ BASE_DIR = os.getcwd()
 
 @app.get("/ping")
 async def ping():
-    return os.popen(f"python {BASE_DIR}/helper.py info ping").read().strip()
+    return os.popen(f"python {BASE_DIR}/helper.py info lat").read().strip()
 
 @app.get("/guilds")
 async def guilds():
     return os.popen(f"python {BASE_DIR}/helper.py info guilds").read().strip()
+
+@app.get("/uptime")
+async def uptime():
+    return os.popen(f"python {BASE_DIR}/helper.py info uptime").read().strip()
 
 @app.get("/{file_path:path}")
 async def serve_file(file_path: str):
