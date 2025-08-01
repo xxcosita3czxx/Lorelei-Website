@@ -12,12 +12,8 @@ function fetchData(url, elementId) {
                 console.warn(`Element with ID "${elementId}" not found.`);
                 return;
             }
-            const values = Object.values(data);
-            if (values.length > 0) {
-                el.innerText = values[0];
-            } else {
-                el.innerText = 'No data available';
-            }
+            // Display the fetched data as-is (stringify for display)
+            el.innerText = JSON.stringify(data);
         })
         .catch(error => {
             console.error('Error fetching data:', error);
@@ -27,3 +23,4 @@ function fetchData(url, elementId) {
             }
         });
 }
+
