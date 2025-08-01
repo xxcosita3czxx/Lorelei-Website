@@ -7,17 +7,23 @@ function fetchData(url, elementId) {
             return response.json();
         })
         .then(data => {
-            // Extract the first value from the response object, ignoring the key
+            const el = document.getElementById(elementId);
+            if (!el) {
+                console.warn(`Element with ID "${elementId}" not found.`);
+                return;
+            }
             const values = Object.values(data);
             if (values.length > 0) {
-                const value = values[0];
-                document.getElementById(elementId).innerText = value;
+                el.innerText = values[0];
             } else {
-                document.getElementById(elementId).innerText = 'No data available';
+                el.innerText = 'No data available';
             }
         })
         .catch(error => {
             console.error('Error fetching data:', error);
-            document.getElementById(elementId).innerText = 'Bot offline';
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.innerText = 'Bot offline';
+            }
         });
 }
