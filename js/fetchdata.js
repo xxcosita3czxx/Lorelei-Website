@@ -13,7 +13,7 @@ function fetchData(url, elementId) {
                 return;
             }
             // Display the fetched data as-is (stringify for display)
-            el.innerText = JSON.stringify(data);
+            el.innerText = data;
         })
         .catch(error => {
             console.error('Error fetching data:', error);
