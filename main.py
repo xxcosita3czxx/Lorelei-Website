@@ -19,7 +19,12 @@ BASE_DIR = os.getcwd()
 
 @app.get("/ping")
 async def ping():
-    return os.popen(f"python {BASE_DIR}/helper.py info lat").read().strip()
+    output = os.popen(f"python {BASE_DIR}/helper.py info lat").read().strip()
+    try:
+        value = float(output)
+        return f"{value:.2f}ms"
+    except ValueError:
+        return ""
 
 @app.get("/guilds")
 async def guilds():
