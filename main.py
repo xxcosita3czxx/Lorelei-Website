@@ -27,6 +27,6 @@ async def serve_file(file_path: str):
 
 if __name__ == "__main__":
     try:
-        uvicorn.run("app:app", host="0.0.0.0", port=80, reload=True)
+        uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)
     except KeyboardInterrupt:
         print("Shutting down server...")
